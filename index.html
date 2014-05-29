@@ -7,7 +7,7 @@
   <meta name="description" content="A comparison of several basic sorting algorithms, with visual representation.">
   <meta name="author" content="Joshua Comeau">
 
-<!--   <link rel="shortcut icon" href="/favicon.ico"> -->
+  <!--   <link rel="shortcut icon" href="/favicon.ico"> -->
 
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/skeleton.css">
@@ -17,55 +17,21 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-  <script src="scripts/jquery_1.11.1.min.js"></script>
-  <script src="scripts/underscore.min.js"></script>
+  <script src="vendor/jquery_1.11.1.min.js"></script>
+  <script src="vendor/underscore.min.js"></script>
+
+  <script src="scripts/base.js"></script>
+  <script src="scripts/selection_sort.js"></script>
 </head>
 
 <body>
 
 
 <script>
-// Adding a method to Array to allow for easy swapping
-Array.prototype.swap = function (x,y) {
-  var temp_holder = this[x];
-  this[x] = this[y];
-  this[y] = temp_holder;
-  return this;
-}
 
-// Selection Sort
-function selection_sort(arr) {
-  var starting_index;
 
-  // First loop iterates starting position. Starts with 0, ends with the final list index
-  for ( starting_index=0; starting_index<arr.length; starting_index++ ) {
-    
-    var current_min_index = get_smallest_index(starting_index);
 
-    selection_compare(starting_index, current_min_index);
-  }
-
-  return arr;
-}
-// Selection Sort sub-functions
-function selection_compare(start, current) {
-  if ( start != current ) {
-    arr.swap( start, current );
-  }  
-}
-
-function get_smallest_index(starting_index) {
-  var current_index, current_min_index = starting_index;
-
-  for ( current_index=starting_index+1; current_index<arr.length; current_index++  ) {
-    if ( arr[current_index] < arr[current_min_index] ) {
-      current_min_index = current_index;
-    }
-  }
-
-  return current_min_index;
-}
-
+// Quick sample array for testing.
 arr = [1,4,2,8,11,45,6,0,-3,2];
 
 </script>
