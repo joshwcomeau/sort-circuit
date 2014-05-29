@@ -3,6 +3,8 @@
 function selection_sort(arr) {
   var starting_index;
 
+  arr = convert_each_to_number(arr);
+
   // First loop iterates starting position. Starts with 0, ends with the final list index
   for ( starting_index=0; starting_index<arr.length; starting_index++ ) {
     
@@ -33,4 +35,14 @@ function get_smallest_index(array, starting_index) {
   }
 
   return current_min_index;
+}
+
+function convert_each_to_number(arr) {
+  return _.map(arr, function(item) {
+    if ( !isNaN(item) ) {
+      return parseFloat(item);
+    }
+    return item;
+  });
+  
 }
