@@ -35,26 +35,38 @@ Array.prototype.swap = function (x,y) {
 
 // Selection Sort
 function selection_sort(arr) {
-  var start;
+  var starting_index;
 
   // First loop iterates starting position. Starts with 0, ends with the final list index
   for ( starting_index=0; starting_index<arr.length; starting_index++ ) {
-    var current_index, current_min_index = starting_index;
+    
+    var current_min_index = get_smallest_index(starting_index);
 
-    for ( current_index=starting_index+1; current_index<arr.length; current_index++  ) {
-      if ( arr[current_index] < arr[current_min_index] ) {
-        current_min_index = current_index;
-      }
-
-    }
-
-    if ( starting_index != current_min_index ) {
-      arr.swap( starting_index, current_min_index );
-    }
+    selection_compare(starting_index, current_min_index);
   }
 
   return arr;
 }
+// Selection Sort sub-functions
+function selection_compare(start, current) {
+  if ( start != current ) {
+    arr.swap( start, current );
+  }  
+}
+
+function get_smallest_index(starting_index) {
+  var current_index, current_min_index = starting_index;
+
+  for ( current_index=starting_index+1; current_index<arr.length; current_index++  ) {
+    if ( arr[current_index] < arr[current_min_index] ) {
+      current_min_index = current_index;
+    }
+  }
+
+  return current_min_index;
+}
+
+arr = [1,4,2,8,11,45,6,0,-3,2];
 
 </script>
 </body>
