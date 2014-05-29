@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -24,6 +23,40 @@
 
 <body>
 
+
+<script>
+// Adding a method to Array to allow for easy swapping
+Array.prototype.swap = function (x,y) {
+  var temp_holder = this[x];
+  this[x] = this[y];
+  this[y] = temp_holder;
+  return this;
+}
+
+// Selection Sort
+function selection_sort(arr) {
+  var start;
+
+  // First loop iterates starting position. Starts with 0, ends with the final list index
+  for ( starting_index=0; starting_index<arr.length; starting_index++ ) {
+    var current_index, current_min_index = starting_index;
+
+    for ( current_index=starting_index+1; current_index<arr.length; current_index++  ) {
+      if ( arr[current_index] < arr[current_min_index] ) {
+        current_min_index = current_index;
+      }
+
+    }
+
+    if ( starting_index != current_min_index ) {
+      arr.swap( starting_index, current_min_index );
+    }
+  }
+
+  return arr;
+}
+
+</script>
 </body>
 </html>
 
