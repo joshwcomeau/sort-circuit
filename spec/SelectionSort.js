@@ -3,7 +3,6 @@ describe("Selection Sort", function() {
 
   beforeEach(function() {
     small_array = [1, 8, 4, 0, 5, 4]
-    big_array = [4,-2,3,7,11,2,3.5,102,1,0,14];
   });
 
 
@@ -16,61 +15,26 @@ describe("Selection Sort", function() {
   });
 
   it("should find the smallest number in an array", function() {
-    expect(get_smallest_index(big_array, 0)).toEqual(1);
+    expect(get_smallest_index(small_array, 0)).toEqual(3);
   });
 
   it("should return a sorted array!", function() {
-    expect(selection_sort(big_array)).toEqual([-2, 0, 1, 2, 3, 3.5, 4, 7, 11, 14, 102]);
+    expect(selection_sort(small_array)).toEqual([ 0, 1, 4, 4, 5, 8 ]);
   });
 
+  it("should sort an array with negative numbers", function() {
+    var negative_array = [4, 0, -3, -14, 2, 51, -1, 1];
+    expect(selection_sort(negative_array)).toEqual([-14, -3, -1, 0, 1, 2, 4, 51]);
+  });
 
+  it("should sort an array with floats", function() {
+    var float_array = [3.5, 2.15, 2.152, 45.3, -1.5452];
+    expect(selection_sort(float_array)).toEqual([-1.5452, 2.15, 2.152, 3.5, 45.3]);
+  });
 
-  // it("should be able to play a Song", function() {
-  //   player.play(song);
-  //   expect(player.currentlyPlayingSong).toEqual(song);
+  it("should sort an array with strings", function() {
+    var string_array = ["Garfield","Odie","Nermal","John"];
+    expect(selection_sort(string_array)).toEqual(["Garfield","John","Nermal","Odie"]);
+  });
 
-  //   //demonstrates use of custom matcher
-  //   expect(player).toBePlaying(song);
-  // });
-
-  // describe("when song has been paused", function() {
-  //   beforeEach(function() {
-  //     player.play(song);
-  //     player.pause();
-  //   });
-
-  //   it("should indicate that the song is currently paused", function() {
-  //     expect(player.isPlaying).toBeFalsy();
-
-  //     // demonstrates use of 'not' with a custom matcher
-  //     expect(player).not.toBePlaying(song);
-  //   });
-
-  //   it("should be possible to resume", function() {
-  //     player.resume();
-  //     expect(player.isPlaying).toBeTruthy();
-  //     expect(player.currentlyPlayingSong).toEqual(song);
-  //   });
-  // });
-
-  // // demonstrates use of spies to intercept and test method calls
-  // it("tells the current song if the user has made it a favorite", function() {
-  //   spyOn(song, 'persistFavoriteStatus');
-
-  //   player.play(song);
-  //   player.makeFavorite();
-
-  //   expect(song.persistFavoriteStatus).toHaveBeenCalledWith(true);
-  // });
-
-  // //demonstrates use of expected exceptions
-  // describe("#resume", function() {
-  //   it("should throw an exception if song is already playing", function() {
-  //     player.play(song);
-
-  //     expect(function() {
-  //       player.resume();
-  //     }).toThrowError("song is already playing");
-  //   });
-  // });
 });
