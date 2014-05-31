@@ -7,3 +7,8 @@ Array.prototype.swap = function (x,y) {
   this[y] = temp_holder;
   return this;
 }
+
+// Check if n is a valid number
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}

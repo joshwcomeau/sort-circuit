@@ -6,7 +6,7 @@ app.controller('SelectionController', ['$scope', function($scope) {
     $scope.sorted_list = selection_sort(arr);
     $scope.sorted_objects = [];
     _.each($scope.sorted_list, function(element, index) {
-      if ( parseInt(element) ) {
+      if ( isNumber(element) ) {
         $scope.sorted_objects.push({
           position: index,
           number: element
