@@ -32,7 +32,7 @@
 <body>
 
 <div ng-controller="SelectionController as selection">
-  <label>Enter some comma-separated numbers: <input ng-model="list" ng-change="sort_list()" type="text" placeholder="eg. 4, 1, -5, 13, 5"> <input ng-click="sort_list()" type="button" value="Sort!"></label>
+  <label>Enter some comma-separated numbers: <input ng-model="list" ng-change="format_list(list)" type="text" placeholder="eg. 4, 1, -5, 13, 5"> <input ng-click="sort_list()" type="button" value="Sort!"></label>
   <div>
     <ul>
       <li ng-repeat="object in sorted_objects track by object.position" class="list_item">{{ object.number }}</li>
