@@ -8,6 +8,11 @@ Array.prototype.swap = function (x,y) {
   return this;
 }
 
+// Turns "13, 5, 2, 7" into ["13","5","2","7"]
+String.prototype.split_string = function() {
+  return this.replace(/ /g, '').split(",");
+}
+
 // Check if n is a valid number
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
